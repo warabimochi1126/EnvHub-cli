@@ -5,6 +5,7 @@
     "typescript": "^5.6.3"
   },
   "devDependencies": {
+    "@octokit/types": "^13.6.1",
     "@types/node": "^22.7.5"
   },
   "name": "envhub-cli",
