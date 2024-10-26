@@ -15,10 +15,11 @@ program.command("pull").action(async () => {
   const { repoOwner, repoName } = parseGitHubUrl(remoteUrl.value!);
   // GitHubAPI叩いてrepoId取得する
   const repoId = await getRepositoryId(repoOwner, repoName);
-
   // TODO: repoIdでcommitList叩く、最新の物のcommitUuidを拾ってくる
   // 認証情報を保持している必要がある -> supabaseの認証情報をoauthURLを返すAPIを作る必要がある
-  // const commitList = await fetch("");
+  const loginResponse = await fetch("http://localhost:3000/api");
+  const { loginUrl } = await loginResponse.json();
+  console.log("loginUrl:", loginUrl);
 
   // TODO: repoId + commitUuidで ファイルのS3DLリンク全て拾ってくる
 
